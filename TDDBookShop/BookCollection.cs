@@ -1,10 +1,16 @@
 ﻿
 namespace TDDBookShop;
 
-internal class BookCollection
+public class BookCollection
 {
-    internal TestDelegate Add(Book book)
+    private List<Book> _books = new();
+    public void Add(Book book)
     {
-        throw new NotImplementedException();
+        #region Guard clauses
+        if (book.Price < 0) { throw new ArgumentException("Price must be non-negative!"); }
+        if (String.IsNullOrEmpty(book.Title)) { throw new ArgumentException("Title must be a non-null or empty string"); } 
+        #endregion
+
+        _books.Add(book);
     }
 }

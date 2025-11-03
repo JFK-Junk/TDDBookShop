@@ -8,7 +8,7 @@ public class Tests
     public void WhenAddingABookInAnInvalidStateToTheCollection_TheBookIsRejected()
     {
         //arrange
-        Book book = new("C# for beginners", "Code Jockey Nielsen", 2023, "098709812345", 249.95);
+        Book book = new("098709812345", "C# for beginners", "Code Jockey Nielsen", 249.95m, 2023);
         BookCollection collection = new();
         
         //act and Assert
