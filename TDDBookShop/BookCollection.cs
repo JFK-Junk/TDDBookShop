@@ -13,4 +13,18 @@ public class BookCollection
 
         _books.Add(book);
     }
+
+    internal void Delete(string isbnNo)
+    {
+        var book = _books.Where(b => b.Isbn == isbnNo).FirstOrDefault();
+        if (book != null)
+        {
+            book.IsDeleted = true;
+        }
+    }
+
+    internal Book Get(string isbnNo)
+    {
+        throw new NotImplementedException();
+    }
 }
