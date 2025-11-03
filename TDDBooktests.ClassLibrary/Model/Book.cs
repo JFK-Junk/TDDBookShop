@@ -1,4 +1,4 @@
-﻿namespace TDDBookShop;
+﻿namespace TDDBooktests.ClassLibrary.Model;
 
 public class Book
 {
@@ -8,7 +8,7 @@ public class Book
     public string Isbn { get; set; }
     public decimal Price { get; set; }
     public int Year { get; set; }
-    public bool IsDeleted { get; internal set; }
+    public bool IsDeleted { get; set; }
     #endregion
 
     public Book(string isbn, string title, string author, decimal price, int year)

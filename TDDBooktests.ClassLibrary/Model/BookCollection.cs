@@ -1,5 +1,4 @@
-﻿
-namespace TDDBookShop;
+﻿namespace TDDBooktests.ClassLibrary.Model;
 
 public class BookCollection
 {
@@ -8,23 +7,24 @@ public class BookCollection
     {
         #region Guard clauses
         if (book.Price < 0) { throw new ArgumentException("Price must be non-negative!"); }
-        if (String.IsNullOrEmpty(book.Title)) { throw new ArgumentException("Title must be a non-null or empty string"); } 
+        if (string.IsNullOrEmpty(book.Title)) { throw new ArgumentException("Title must be a non-null or empty string"); } 
         #endregion
 
         _books.Add(book);
     }
 
-    internal void Delete(string isbnNo)
+    public  void Delete(string isbnNo)
     {
-        var book = _books.Where(b => b.Isbn == isbnNo).FirstOrDefault();
+        var book = Get(isbnNo);
         if (book != null)
         {
             book.IsDeleted = true;
         }
     }
 
-    internal Book Get(string isbnNo)
+    public  Book Get(string isbnNo)
     {
-        throw new NotImplementedException();
+        return _books.Where(b => b.Isbn == isbnNo
+        ).FirstOrDefault();
     }
 }
